@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Reporter - Report City Problems</title>
+</head>
+
+<body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background: #f0f2f5; color: #333;">
+
+    <!-- Navigation -->
+    <nav style="background: #2c3e50; color: white; padding: 15px 30px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+        <h2 style="font-size: 24px; margin: 0 0 10px 0;">🏙️ Urban Reporter</h2>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <button class="nav-btn" onclick="showPage('home')" style="background: #27ae60; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px;">Home</button>
+            <button class="nav-btn" onclick="showPage('report')" style="background: #3498db; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px;">Report Issue</button>
+            <button class="nav-btn" onclick="showPage('view')" style="background: #3498db; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px;">View Issues</button>
+        </div>
+    </nav>
+
+    <div style="max-width: 1000px; margin: 30px auto; padding: 20px;">
+
+        <!-- HOME PAGE -->
+        <div id="homePage" style="display: block; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <h1 style="font-size: 36px; color: #2c3e50; margin: 0 0 15px 0;">🏙️ Report City Problems Easily</h1>
+                <p style="font-size: 18px; color: #666; margin-bottom: 25px;">Help make your city better by reporting issues like potholes, broken lights, and garbage problems.</p>
+                <button onclick="showPage('report')" style="background: #3498db; color: white; padding: 15px 30px; border: none; border-radius: 5px; font-size: 18px; cursor: pointer; width: 100%;">Report an Issue Now</button>
+            </div>
+
+            <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 30px;">
+                <div style="flex: 1; min-width: 250px; background: #ecf0f1; padding: 30px; border-radius: 10px; text-align: center;">
+                    <h3 style="font-size: 24px; margin: 0 0 10px 0;">📝 Easy Reporting</h3>
+                    <p style="margin: 0;">Report any city problem in just 2 minutes. Simple form, quick process.</p>
+                </div>
+                <div style="flex: 1; min-width: 250px; background: #ecf0f1; padding: 30px; border-radius: 10px; text-align: center;">
+                    <h3 style="font-size: 24px; margin: 0 0 10px 0;">👀 Track Issues</h3>
+                    <p style="margin: 0;">See all reported problems in your area. Stay informed about what's happening.</p>
+                </div>
+                <div style="flex: 1; min-width: 250px; background: #ecf0f1; padding: 30px; border-radius: 10px; text-align: center;">
+                    <h3 style="font-size: 24px; margin: 0 0 10px 0;">✅ Get Updates</h3>
+                    <p style="margin: 0;">Know when issues are being fixed. Track the status of every report.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- REPORT PAGE -->
+        <div id="reportPage" style="display: none; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <h1 style="font-size: 32px; color: #2c3e50; margin: 0 0 30px 0; border-bottom: 3px solid #3498db; padding-bottom: 10px;">📝 Report a City Problem</h1>
+
+            <form id="reportForm">
+                <label style="display: block; margin-top: 20px; margin-bottom: 8px; font-weight: bold; font-size: 16px;">What is the problem? *</label>
+                <select id="category" required style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 5px; font-size: 16px; font-family: Arial, sans-serif;">
+                    <option value="">-- Select problem type --</option>
+                    <option value="Pothole">🕳️ Pothole on road</option>
+                    <option value="Streetlight">💡 Broken streetlight</option>
+                    <option value="Garbage">🗑️ Garbage not collected</option>
+                    <option value="Water">💧 Water supply issue</option>
+                    <option value="Drainage">🚰 Drainage problem</option>
+                    <option value="Other">❓ Other problem</option>
+                </select>
+
+                <label style="display: block; margin-top: 20px; margin-bottom: 8px; font-weight: bold; font-size: 16px;">Describe the problem: *</label>
+                <textarea id="description" rows="4" required placeholder="Please explain the problem in detail..." style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 5px; font-size: 16px; font-family: Arial, sans-serif;"></textarea>
+
+                <label style="display: block; margin-top: 20px; margin-bottom: 8px; font-weight: bold; font-size: 16px;">Where is the problem? *</label>
+                <input type="text" id="location" required placeholder="Enter street name or area (e.g., Main Street, Sector 15)" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 5px; font-size: 16px; font-family: Arial, sans-serif;">
+
+                <label style="display: block; margin-top: 20px; margin-bottom: 8px; font-weight: bold; font-size: 16px;">Your Name (optional):</label>
+                <input type="text" id="name" placeholder="Your name (you can leave this empty)" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 5px; font-size: 16px; font-family: Arial, sans-serif;">
+
+
+
+
+                <label style="display: block; margin-top: 20px; margin-bottom: 8px; font-weight: bold; font-size: 16px;">Take or Upload Photo (optional):</label>
+                <input type="file" id="photo" accept="image/*" capture="environment" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 5px; font-size: 16px; font-family: Arial, sans-serif;">
+
+
+
+
+                <button type="submit" style="background: #3498db; color: white; padding: 15px 30px; border: none; border-radius: 5px; font-size: 18px; cursor: pointer; margin-top: 20px; width: 100%;">Submit Report ✅</button>
+            </form>
+
+            <div id="successMessage" style="display: none; background: #d4edda; border: 2px solid #28a745; color: #155724; padding: 20px; border-radius: 5px; text-align: center; margin-top: 20px;">
+                <h2 style="margin: 0 0 10px 0;">✅ Report Submitted Successfully!</h2>
+                <p style="margin: 0 0 15px 0;">Thank you for reporting this issue. You can view all issues in the "View Issues" page.</p>
+                <button onclick="showPage('view')" style="background: #3498db; color: white; padding: 15px 30px; border: none; border-radius: 5px; font-size: 18px; cursor: pointer; margin-top: 15px; width: 100%;">View All Issues</button>
+            </div>
+        </div>
+
+        <!-- VIEW ISSUES PAGE -->
+        <div id="viewPage" style="display: none; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <h1 style="font-size: 32px; color: #2c3e50; margin: 0 0 30px 0; border-bottom: 3px solid #3498db; padding-bottom: 10px;">👀 All Reported Issues</h1>
+            <div id="issuesList"></div>
+        </div>
+    </div>
+
+    <script>
+        // Show/Hide pages
+        function showPage(pageName) {
+            // Hide all pages
+            document.getElementById('homePage').style.display = 'none';
+            document.getElementById('reportPage').style.display = 'none';
+            document.getElementById('viewPage').style.display = 'none';
+
+            // Reset all nav buttons to default color
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(btn => btn.style.background = '#3498db');
+
+            // Show selected page and highlight button
+            if (pageName === 'home') {
+                document.getElementById('homePage').style.display = 'block';
+                buttons[0].style.background = '#27ae60';
+            } else if (pageName === 'report') {
+                document.getElementById('reportPage').style.display = 'block';
+                buttons[1].style.background = '#27ae60';
+            } else if (pageName === 'view') {
+                document.getElementById('viewPage').style.display = 'block';
+                buttons[2].style.background = '#27ae60';
+                loadIssues();
+            }
+
+            window.scrollTo(0, 0);
+        }
+
+        // Handle form submission
+        document.getElementById('reportForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const issue = {
+                id: Date.now(),
+                category: document.getElementById('category').value,
+                description: document.getElementById('description').value,
+                location: document.getElementById('location').value,
+                name: document.getElementById('name').value || 'Anonymous',
+                date: new Date().toLocaleDateString(),
+                status: 'Pending'
+            };
+
+            let issues = JSON.parse(localStorage.getItem('issues')) || [];
+            issues.push(issue);
+            localStorage.setItem('issues', JSON.stringify(issues));
+
+            document.getElementById('reportForm').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'block';
+
+            setTimeout(() => {
+                document.getElementById('reportForm').reset();
+                document.getElementById('reportForm').style.display = 'block';
+                document.getElementById('successMessage').style.display = 'none';
+            }, 3000);
+        });
+
+        // Load and display issues
+        function loadIssues() {
+            let issues = JSON.parse(localStorage.getItem('issues')) || [];
+            const issuesList = document.getElementById('issuesList');
+
+            if (issues.length === 0) {
+                issuesList.innerHTML = `
+                    <div style="text-align: center; padding: 40px; color: #999; font-size: 18px;">
+                        <h2>No issues reported yet</h2>
+                        <p>Be the first to report a city problem!</p>
+                        <button onclick="showPage('report')" style="background: #3498db; color: white; padding: 15px 30px; border: none; border-radius: 5px; font-size: 18px; cursor: pointer; margin-top: 20px;">Report an Issue</button>
+                    </div>
+                `;
+                return;
+            }
+
+            let html = '';
+            issues.reverse().forEach(issue => {
+                const statusColor = issue.status === 'Pending' ? '#f39c12' : '#27ae60';
+
+                html += `
+                    <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 5px solid #3498db;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; flex-wrap: wrap; gap: 10px;">
+                            <span style="background: #3498db; color: white; padding: 8px 15px; border-radius: 20px; font-size: 14px; font-weight: bold;">${issue.category}</span>
+                            <span style="background: ${statusColor}; color: white; padding: 8px 15px; border-radius: 20px; font-size: 14px; font-weight: bold;">${issue.status}</span>
+                        </div>
+                        <h3 style="margin-bottom: 12px; color: #2c3e50;">${issue.description}</h3>
+                        <p style="margin: 8px 0; color: #555;"><strong>📍 Location:</strong> ${issue.location}</p>
+                        <p style="margin: 8px 0; color: #555;"><strong>👤 Reported by:</strong> ${issue.name}</p>
+                        <p style="margin: 8px 0; color: #555;"><strong>📅 Date:</strong> ${issue.date}</p>
+                    </div>
+                `;
+            });
+
+            issuesList.innerHTML = html;
+        }
+
+        window.addEventListener('DOMContentLoaded', function() {
+            loadIssues();
+        });
+    </script>
+</body>
+
+</html>
